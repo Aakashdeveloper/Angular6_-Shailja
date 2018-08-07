@@ -16,12 +16,14 @@
                 <h3>FilteredBy</h3>
            </div>
        </div>
+       {{showImage}}
        <div class="table-responsive">
-           <table class="table">
+           <table class="table" *ngIf="products && products.length">
                <thead>
                     <tr>
                         <th>
-                            <button class="btn btn-success">
+                            <button class="btn btn-success"
+                                (click)="toggleImage()">
                                 Show Image
                             </button>
                         </th>
@@ -34,7 +36,10 @@
                </thead>
                <tbody>
                    <tr *ngFor="let product of products">
-                        <td></td>
+                        <td>
+                            <img [src]="product.imageUrl" 
+                                *ngIf="showImage"/>
+                        </td>
                         <td>{{product.productName}}</td>
                         <td>{{product.productCode}}</td>
                         <td>{{product.releaseDate}}</td>

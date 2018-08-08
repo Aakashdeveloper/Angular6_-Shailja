@@ -9,6 +9,7 @@ export class ProductComponent {
     title: String = '@@@@@@@Product list';
     showTable: Boolean = true;
     showImage: Boolean = false;
+    filterText: String;
     products: any[] = [
         {
             '_id': '5a05dacc734d1d68d42d31f3',

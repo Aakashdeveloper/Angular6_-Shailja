@@ -8,12 +8,12 @@
                <p>FilterBy:</p>
            </div>
            <div class="col-md-4">
-               <input type="text"/>
+               <input type="text" [(ngModel)]="filterText"/>
            </div>
        </div>
        <div class="row">
            <div class="col-md-6">
-                <h3>FilteredBy</h3>
+                <h3>FilteredBy: {{filterText}}</h3>
            </div>
        </div>
        {{showImage}}
@@ -40,10 +40,10 @@
                             <img [src]="product.imageUrl" 
                                 *ngIf="showImage"/>
                         </td>
-                        <td>{{product.productName}}</td>
-                        <td>{{product.productCode}}</td>
+                        <td>{{product.productName | myUpper:"upper"}}</td>
+                        <td>{{product.productCode | myUpper:"lower"}}</td>
                         <td>{{product.releaseDate}}</td>
-                        <td>{{product.price}}</td>
+                        <td>{{product.price | currency:"INR"}}</td>
                         <td>{{product.starRating}}</td>
                    </tr>
                </tbody>

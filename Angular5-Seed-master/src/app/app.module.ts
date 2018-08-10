@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './books.component';
 import { ProductComponent } from './products/product.component';
 import { PipeUppper } from './products/myUpper.pipe';
+import { AddValuePipe } from './products/addValue.pipe';
+import { ProductFilter } from './products/filterProduct.pipe';
 
 @NgModule({
     // All module declare here
@@ -18,7 +20,9 @@ import { PipeUppper } from './products/myUpper.pipe';
         AppComponent,
         BookComponent,
         ProductComponent,
-        PipeUppper
+        PipeUppper,
+        AddValuePipe,
+        ProductFilter
 
     ],
     // Only main component

@@ -27,7 +27,9 @@
                                 Show Image
                             </button>
                         </th>
-                        <th>Name</th>
+                        <th >
+                                Name
+                        </th>
                         <th>Code</th>
                         <th>Release Date</th>
                         <th>Price</th>
@@ -38,13 +40,18 @@
                    <tr *ngFor="let product of products | ProductFilter:filterText">
                         <td>
                             <img [src]="product.imageUrl" 
+                                [style.width.px]="imageWidth"
                                 *ngIf="showImage"/>
                         </td>
-                        <td>{{product.productName | myUpper:"upper"}}</td>
+                        <td style="color:violet">{{product.productName | myUpper:"upper"}}</td>
                         <td>{{product.productCode | myUpper:"lower"}}</td>
                         <td>{{product.releaseDate}}</td>
                         <td>{{product.price | AddValue | currency:"INR"}}</td>
-                        <td>{{product.starRating}}</td>
+                        <td>
+                            <app-star [rating]="product.starRating"
+                                (ratingClicked)="onDataRecive($event)">
+                            </app-star>
+                        </td>
                    </tr>
                </tbody>
            </table>

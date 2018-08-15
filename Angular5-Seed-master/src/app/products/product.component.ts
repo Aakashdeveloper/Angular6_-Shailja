@@ -23,9 +23,18 @@ export class ProductComponent implements OnInit {
         this.showImage = !this.showImage;
     }
 
+    /*
+    using Promise
     ngOnInit(): void {
-        this.products = this._productService.getProducts();
+        this._productService.getProducts()
+            .then((data) => this.products = data);
+    }*/
+
+    ngOnInit(): void {
+        this._productService.getProducts()
+            .subscribe((data) => this.products = data);
     }
+
     onDataRecive(message: string): void {
         this.title = '@@@@@@@Product list>>>> ' + message;
     }

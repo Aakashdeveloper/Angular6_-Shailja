@@ -44,7 +44,8 @@
                                 *ngIf="showImage"/>
                         </td>
                         <td style="color:violet">
-                            <a [routerLink]="['/products', product.productId]">{{product.productName | myUpper:"upper"}}</a>
+                            <a [routerLink]="['/product', product.productId]">
+                                {{product.productName | myUpper:"upper"}}</a>
                             </td>
                         <td>{{product.productCode | myUpper:"lower"}}</td>
                         <td>{{product.releaseDate}}</td>

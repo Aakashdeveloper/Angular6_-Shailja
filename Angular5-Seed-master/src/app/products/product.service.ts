@@ -10,7 +10,7 @@ import { map } from '../../../node_modules/rxjs/operator/map';
 
 export class ProductService {
 
-    private _productUrl = 'https://ngapi4.herokuapp.com/api/getProducts';
+    private _productUrl = 'https://ngproductsparam.herokuapp.com/api/getProductDetails';
 
     constructor(private _http: Http,
                 private _httpClient: HttpClient) {}
@@ -23,10 +23,16 @@ export class ProductService {
         return this._httpClient.get<IProduct[]>(this._productUrl);
     }
 
+    getProductDetail(id): Observable<IProduct[]> {
+        return this._http.get('https://ngproductsparam.herokuapp.com/api/getProductDetails?productId=' + id)
+                    .map((data: Response) => data.json());
+    }
+
+
     /*/ Angular 5
     getProducts(): Observable<IProduct[]> {
         return this._http.get(this._productUrl)
-                .map((data: Response) => data.json());
+                .map((data: Response) => data.json()) ;
     }
     */
 

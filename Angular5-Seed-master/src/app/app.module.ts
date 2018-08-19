@@ -3,20 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/Router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { BookComponent } from './books.component';
 import { ProductComponent } from './products/product.component';
 import { PipeUppper } from './products/myUpper.pipe';
 import { AddValuePipe } from './products/addValue.pipe';
 import { ProductFilter } from './products/filterProduct.pipe';
 import { StarComponent } from './shared/star.component';
 import { ProductService } from './products/product.service';
-import { NotFoundComponent } from './shared/notFound.component';
-import { ProductDetailComponent } from './products/product-detail.copmonent';
+import { NotfoundComponent } from './shared/notFound.component';
+import { DetailComponent } from './products/product-detail.copmonent';
 import { OrderComponent } from './ordePage/orderpage.component';
-import { HomeComponent } from './home/home.component';
+import { MyhomeComponent } from './home/home.component';
 
 @NgModule({
     // All module declare here
@@ -26,28 +25,26 @@ import { HomeComponent } from './home/home.component';
         HttpModule,
         HttpClientModule,
         RouterModule.forRoot([
-            {path: 'products', component: ProductComponent},
-            {path: 'products/:id', component: ProductDetailComponent},
+            {path: 'product', component: ProductComponent},
+            {path: 'product/:id',  component: DetailComponent},
             {path: 'orders', component: OrderComponent},
-            {path: 'home', component: HomeComponent},
+            {path: 'home', component: MyhomeComponent},
             {path: '', redirectTo: 'home', pathMatch: 'full'},
-            {path: '**', component: NotFoundComponent}
+            {path: '**', component: NotfoundComponent}
         ])
     ],
     // All Components & pipe
     declarations: [
         AppComponent,
-        BookComponent,
         ProductComponent,
         PipeUppper,
         AddValuePipe,
         ProductFilter,
         StarComponent,
-        NotFoundComponent,
-        ProductDetailComponent,
+        NotfoundComponent,
+        DetailComponent,
         OrderComponent,
-        HomeComponent
-
+        MyhomeComponent
     ],
     // Only main component
     bootstrap: [

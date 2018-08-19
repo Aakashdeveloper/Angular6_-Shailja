@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
             </div>`
 })
 
-export class NotFoundComponent {
+export class NotfoundComponent {
 
 }

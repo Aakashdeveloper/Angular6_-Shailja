@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { ProductService } from './product.service';
 import { IProduct } from './product.model';
 
@@ -15,7 +15,8 @@ export class DetailComponent implements OnInit {
     detail: any[];
 
     constructor(private _activeroute: ActivatedRoute,
-                private _productService: ProductService) {}
+                private _productService: ProductService,
+                private _router: Router) {}
 
     ngOnInit(): void {
         this.id = +this._activeroute.snapshot.params['id'];
@@ -31,5 +32,9 @@ export class DetailComponent implements OnInit {
 
         this._productService.getProductDetail(this.id)
             .subscribe((data) => this.detail = data);
+    }
+
+    onBack(): void {
+        this._router.navigate(['/product']);
     }
 }
